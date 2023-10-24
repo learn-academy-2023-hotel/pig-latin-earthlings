@@ -32,6 +32,19 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
+      if (vowelsArray.includes(eachWord.charAt(0))) {
+          return eachWord + "way"
+        } else if (eachWord.includes("qu")) {
+          return eachWord.slice(eachWord.indexOf("qu")+2) + (eachWord.slice(0, eachWord.indexOf("qu")+ 2)) + "ay"
+        }
+      console.log(eachWord.slice(eachWord.indexOf("qu")+2) )
+
+      //eachWord.slice(eachWord.indexOf("qu")+2)
+      //+ (eachWord.slice(0, eachWord.indexOf("qu")+2))
+      // Input: qu
+      // check eachWord to see if it includes qu in the first sylible
+      // if it does, moving all the consonants and the "u" to the end and adding "ay"
+      // use eachWord.includes(qu)
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
