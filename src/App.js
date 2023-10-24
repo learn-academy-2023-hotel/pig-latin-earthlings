@@ -32,19 +32,43 @@ const App = () => {
       console.log("vowelsArray:", vowelsArray)
 
       // ACTION ITEM: your Pig Latin logic goes here!
+      // input: type any word that begins with a vowel
+      // output: words that begin with a vowel translates to pig latin
+      // create a conditional statement eachWord.charAt(0) takes the first letter of the word. 
+      // if the condition of vowelsArray.includes(in the case of apple, vowelsArray = ['a', 'e']) . includes() will check if eachWord.charAt(0) is one of the matching vowels
+      // then return the original word with "way" at the end
       if (vowelsArray.includes(eachWord.charAt(0))) {
           return eachWord + "way"
+          // input: any word that has a "qu" in the first syllabul
+          // output: word with "qu" in the first syllabul will translate to pig latin
+          // continue the conditional statement that checks eachWord using .includes() checking to see if "qu" is in the word
+          // using .indexOf("qu") to determine the location of "qu"
+          // + 2 will allow us to find the index located behind "qu" (such as queen, it would find the first "e" which is index[2]) 
+          // so using the eachWord.slice(2) (2 coming from eachwWrd.Indexof()) will return the part of the word starting from the aquired index
+          // we add that part of the word
+          // using .indexOf("qu") to determine the location of "qu" 
+          // + 2 will allow us to find the index located behind "qu" (such as queen, it would find the first "e" which is index[2])
+          // the zero represents the first index of the eachWord, the result from eachWord.Indexof()+2 will represent the index where slice will stop.
+          // now that we have the locations for slice, (0, 2), slice will start at the zero index and end at the 2 index
+          // finally add the "ay"
         } else if (eachWord.includes("qu")) {
           return eachWord.slice(eachWord.indexOf("qu")+2) + (eachWord.slice(0, eachWord.indexOf("qu")+ 2)) + "ay"
+          // input: any word that has no vowels other than y
+          // output: words with only y vowels will translate to pig latin
+          // continue the conditional statement that confirms there are no vowels by checking the vowelsArray.length will only be greater than zero if there is a vowel
+          // and .include() checks eachWord to see if it includes "y"
+          // // using .indexOf("y") to determine the location of "y"
+          // so using the eachWord.slice(eachWord.indexOf("y")) will return the part of the word starting from the aquired index
+          // we add that part of the word
+          // using .indexOf("y") to determine the location of "y" 
+          // the zero represents the first index of the eachWord, the indexOf("y") determines where .slice stops
+          // now that we have the locations for slice, (0, y's index), slice will start at the zero index and end at the y's index
+          // finally add the "ay"
+        } else if (vowelsArray.length === 0 && eachWord.includes("y")) {
+          return eachWord.slice(eachWord.indexOf("y")) + (eachWord.slice(0, eachWord.indexOf("y"))) + "ay"
         }
-      console.log(eachWord.slice(eachWord.indexOf("qu")+2) )
-
-      //eachWord.slice(eachWord.indexOf("qu")+2)
-      //+ (eachWord.slice(0, eachWord.indexOf("qu")+2))
-      // Input: qu
-      // check eachWord to see if it includes qu in the first sylible
-      // if it does, moving all the consonants and the "u" to the end and adding "ay"
-      // use eachWord.includes(qu)
+        
+      console.log(eachWord.slice(eachWord.indexOf("qu")+2))
 
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
