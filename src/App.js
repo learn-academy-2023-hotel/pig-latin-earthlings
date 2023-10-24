@@ -66,10 +66,24 @@ const App = () => {
           // finally add the "ay"
         } else if (vowelsArray.length === 0 && eachWord.includes("y")) {
           return eachWord.slice(eachWord.indexOf("y")) + (eachWord.slice(0, eachWord.indexOf("y"))) + "ay"
+          // input: any word that starts with one or more consonants
+          // output: words that starts with one or more consonants translates to pig latin
+          // continue the conditional statement...
+          // find first vowel
+          // check to see how many letters are consonants in front of the vowel
+          // 
+        } else if(!vowelsArray.includes(eachWord.charAt(0))) {
+          if(!vowelsArray.includes(eachWord.charAt(1))) {
+            if(!vowelsArray.includes(eachWord.charAt(2))) {
+              return eachWord.slice(3) + (eachWord.slice(0, 3)) + "ay"
+            }
+            return eachWord.slice(2) + (eachWord.slice(0, 2)) + "ay"
+          }
+          return eachWord.slice(1) + (eachWord.slice(0, 1)) + "ay"
         }
         
-      console.log(eachWord.slice(eachWord.indexOf("qu")+2))
-
+      console.log(translatedWordsArray.indexOf(vowelsArray))
+      
       // ACTION ITEM: this return will be the output of your Pig Latin'd code
       return eachWord
     })
